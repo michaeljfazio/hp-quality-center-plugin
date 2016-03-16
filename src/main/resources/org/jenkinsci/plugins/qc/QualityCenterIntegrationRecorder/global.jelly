@@ -1,0 +1,26 @@
+<?jelly escape-by-default='true'?>
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+
+  <f:section title="HP Quality Center Integration">
+    
+    <f:entry title="Server URL" field="url"
+      description="URL to the Quality Center server.">
+      <f:textbox />
+    </f:entry>
+    
+    <f:entry title="Username" field="username"
+      description="Quality Center account username.">
+      <f:textbox />
+    </f:entry>
+    
+    <f:entry title="Password" field="password"
+      description="Quality Center account password.">
+      <f:password />
+    </f:entry>
+    
+    <f:validateButton title="Test connection to Quality Center" progress="Testing..."
+   		method="testConnection" with="url,username,password" />
+    
+  </f:section>
+  
+</j:jelly>
