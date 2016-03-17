@@ -41,6 +41,9 @@ import hudson.util.ListBoxModel;
 import net.sf.json.JSONObject;
 
 /**
+ * This {@link Recorder} provides a one-way synchroniztion of Maven unit test
+ * results to HP ALM Quality Center.
+ * 
  * @author Michael Fazio
  */
 public class QualityCenterIntegrationRecorder extends Recorder {
@@ -55,6 +58,24 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 	private final String userDefinedFields;
 	private final boolean noTestResultFail;
 
+	/**
+	 * Constructor
+	 * 
+	 * @param domain
+	 *            The QC domain.
+	 * @param project
+	 *            The QC project.
+	 * @param planFolder
+	 *            The QC plan folder that test plans shall be created in.
+	 * @param labFolder
+	 *            The QC lab folder that new test sets shall be created in.
+	 * @param userDefinedFields
+	 *            Any additional user defined fields and values that will be
+	 *            populated when creating new QC test plans.
+	 * @param noTestResultFail
+	 *            If {@code true} then builds will be marked as failed when no
+	 *            test results have been found.
+	 */
 	@DataBoundConstructor
 	public QualityCenterIntegrationRecorder(String domain, String project, String planFolder, String labFolder,
 			String userDefinedFields, boolean noTestResultFail) {
@@ -66,10 +87,16 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 		this.noTestResultFail = noTestResultFail;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	public BuildStepMonitor getRequiredMonitorService() {
 		return BuildStepMonitor.NONE;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener)
 			throws InterruptedException, IOException {
@@ -131,10 +158,10 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 						e.add("subtype-id", "VAPI-XP-TEST");
 
 						Matcher matcher = Pattern.compile("([^=]+)=([^=]+)(?:,|$)").matcher(userDefinedFields);
-						while(matcher.find()) {
+						while (matcher.find()) {
 							e.add(matcher.group(1), matcher.group(2));
 						}
-						
+
 						e.add("status", "Ready");
 						e.post();
 						tests.put(e.get("name"), e);
@@ -294,7 +321,7 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 	public boolean isNoTestResultFail() {
 		return noTestResultFail;
 	}
-	
+
 	public String getUserDefinedFields() {
 		return userDefinedFields;
 	}
@@ -400,17 +427,18 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 
 			return FormValidation.ok();
 		}
-		
-		public FormValidation doCheckUserDefinedFields(@QueryParameter("userDefinedFields") final String userDefinedFields) {
-			
-			if(userDefinedFields.length() == 0) {
+
+		public FormValidation doCheckUserDefinedFields(
+				@QueryParameter("userDefinedFields") final String userDefinedFields) {
+
+			if (userDefinedFields.length() == 0) {
 				return FormValidation.ok();
 			}
-			
-			if(Pattern.compile("(([^=]+)=([^=]+)(?:,|$))+").matcher(userDefinedFields).matches()) {
+
+			if (Pattern.compile("(([^=]+)=([^=]+)(?:,|$))+").matcher(userDefinedFields).matches()) {
 				return FormValidation.ok();
 			}
-			
+
 			return FormValidation.error("Must be a key-value list separated by commas (e.g. key1=value1,key2=value2");
 		}
 
