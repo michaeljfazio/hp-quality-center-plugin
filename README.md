@@ -3,13 +3,13 @@
 A plugin for Jenkins CI that synchronizes Maven unit test results with HP ALM Quality Center.
 
 * [Jenkins-CI Wiki](https://wiki.jenkins-ci.org/display/JENKINS/HP+ALM+Quality+Center+Plugin)
-* [Source Code](https://github.com/S73417H/jenkins-qc-plugin)
+* [Source Code](https://github.com/S73417H/hp-quality-center)
 
 # Current Build Status
 
 This project uses Travis CI for continuous integration.
 
-[![Build Status](https://travis-ci.org/S73417H/jenkins-qc-plugin.png)](https://travis-ci.org/S73417H/jenkins-qc-plugin)
+[![Build Status](https://travis-ci.org/S73417H/jenkins-qc-plugin.png)](https://travis-ci.org/S73417H/hp-quality-center)
 
 # Getting Started
 
