@@ -38,7 +38,7 @@
 
 	<scm>
 		<connection>scm:git:https://github.com/S73417H/jenkins-qc-plugin.git</connection>
-		<developerConnection>scm:git:ssh://git@github.com:S73417H/jenkins-qc-plugin.git</developerConnection>
+		<developerConnection>scm:git:git@github.com:S73417H/hp-quality-center.git</developerConnection>
 		<url>https://github.com/S73417H/jenkins-qc-plugin</url>
 	</scm>
 
