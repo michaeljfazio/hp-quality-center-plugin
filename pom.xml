@@ -9,7 +9,7 @@
 
 	<groupId>org.jenkins-ci.plugins.qc</groupId>
 	<artifactId>hp-quality-center</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>hpi</packaging>
 
 	<name>HP ALM Quality Center Plugin</name>
@@ -36,9 +36,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https://github.com/jenkinsci/hp-quality-center-plugin.git</connection>
-		<developerConnection>scm:git:git@github.com:jenkinsci/hp-quality-center-plugin.git</developerConnection>
-		<url>https://github.com/jenkinsci/hp-quality-center-plugin</url>
+		<connection>scm:git:https://github.com/S73417H/hp-quality-center-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:S73417H/hp-quality-center-plugin.git</developerConnection>
+		<url>https://github.com/S73417H/hp-quality-center-plugin</url>
     <tag>HEAD</tag>
   </scm>
 
