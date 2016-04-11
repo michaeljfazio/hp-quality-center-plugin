@@ -2,6 +2,7 @@ target/
 work/
 .settings/
 .idea/
+*.iml
 
 .classpath
 .project
