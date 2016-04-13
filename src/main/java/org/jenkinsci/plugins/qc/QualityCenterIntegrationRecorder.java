@@ -291,7 +291,7 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 		Iterator<String> iterator = Arrays.asList(path).iterator();
 		while (iterator.hasNext()) {
 			String next = iterator.next();
-			List<Entity> result = query.filter("parent-id[={0}];name[\"{1}\"]", parentId, next).execute();
+			List<Entity> result = query.filter("parent-id[={0}];name[\"{1}\"]", Long.toString(parentId), next).execute();
 			if (result.isEmpty()) {
 				entity = null;
 				break;
