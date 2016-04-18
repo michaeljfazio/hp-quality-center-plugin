@@ -19,6 +19,7 @@ public class QualityCenter {
 		target.property(MessageProperties.XML_SECURITY_DISABLE, Boolean.TRUE);
 		/* target.register(new LoggingFilter()); */
 		target.register(new SessionFilter());
+		target.register(new ResponseFilter());
 		return new QualityCenter(target);
 	}
 

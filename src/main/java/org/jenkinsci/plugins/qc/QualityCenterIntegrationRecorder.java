@@ -439,7 +439,7 @@ public class QualityCenterIntegrationRecorder extends Recorder {
 				return FormValidation.ok();
 			}
 
-			return FormValidation.error("Must be a key-value list separated by commas (e.g. key1=value1,key2=value2");
+			return FormValidation.error("Must be a key-value list separated by commas (e.g. key1=value1,key2=value2)");
 		}
 
 		/**
