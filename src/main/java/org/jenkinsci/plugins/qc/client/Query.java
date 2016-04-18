@@ -10,6 +10,8 @@ import javax.ws.rs.core.GenericType;
 import org.glassfish.jersey.uri.UriComponent;
 import org.glassfish.jersey.uri.UriComponent.Type;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 public class Query {
 
 	private static final int PAGE_SIZE = 50;
@@ -33,6 +35,8 @@ public class Query {
 		return this;
 	}
 
+	// TODO: Implement field filtering (and remove warning suppression)
+	@SuppressFBWarnings({ "URF_UNREAD_FIELD" })
 	public Query fields(String... fields) {
 		this.fields = fields;
 		return this;
@@ -57,7 +61,7 @@ public class Query {
 		do {
 			List<Schema.Entity> entities = target.queryParam("page-size", PAGE_SIZE)
 					.queryParam("start-index", (page++ * PAGE_SIZE) + 1).request().get(new EntityCollectionType());
-			for(Schema.Entity entity: entities) {
+			for (Schema.Entity entity : entities) {
 				results.add(new Entity(root.path(resource), entity));
 			}
 			count = entities.size();
@@ -66,6 +70,7 @@ public class Query {
 		return results;
 	}
 
-	private static class EntityCollectionType extends GenericType<List<Schema.Entity>> { }
+	private static class EntityCollectionType extends GenericType<List<Schema.Entity>> {
+	}
 
 }

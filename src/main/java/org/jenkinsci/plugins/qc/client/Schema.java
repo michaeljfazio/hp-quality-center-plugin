@@ -68,7 +68,7 @@ class Schema {
 	}
 
 	@XmlRootElement(name = "QCRestException")
-	@SuppressFBWarnings(value = { "NM_CLASS_NOT_EXCEPTION" })
+	@SuppressFBWarnings({ "NM_CLASS_NOT_EXCEPTION" })
 	public static class QCRestException {
 
 		@XmlElement(name = "Id")
