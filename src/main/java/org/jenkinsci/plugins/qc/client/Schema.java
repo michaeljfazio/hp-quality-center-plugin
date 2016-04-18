@@ -8,6 +8,8 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 class Schema {
 
 	@XmlRootElement(name = "Domain")
@@ -66,6 +68,7 @@ class Schema {
 	}
 
 	@XmlRootElement(name = "QCRestException")
+	@SuppressFBWarnings(value = { "NM_CLASS_NOT_EXCEPTION" })
 	public static class QCRestException {
 
 		@XmlElement(name = "Id")
