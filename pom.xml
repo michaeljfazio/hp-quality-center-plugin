@@ -36,11 +36,11 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:https://github.com/S73417H/hp-quality-center-plugin.git</connection>
-		<developerConnection>scm:git:git@github.com:S73417H/hp-quality-center-plugin.git</developerConnection>
-		<url>https://github.com/S73417H/hp-quality-center-plugin</url>
-    <tag>HEAD</tag>
-  </scm>
+		<connection>scm:git:https://github.com/jenkinsci/hp-quality-center-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com:jenkinsci/hp-quality-center-plugin.git</developerConnection>
+		<url>https://github.com/jenkinsci/hp-quality-center-plugin</url>
+    	<tag>HEAD</tag>
+  	</scm>
 
 	<repositories>
 		<repository>
